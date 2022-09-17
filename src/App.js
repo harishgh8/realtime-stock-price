@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import StockDetailPage from "./pages/StockDetailPage";
 import StockOverviewPage from "./pages/StockOverviewpage";

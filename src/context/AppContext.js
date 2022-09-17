@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from "react";
-import finnHUB from "../apis/finnHUB";
+import React from "react";
+import { createContext, useState } from "react";
 
 const AppContext = createContext();
 

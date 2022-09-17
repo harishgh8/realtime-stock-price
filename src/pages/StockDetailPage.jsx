@@ -44,7 +44,7 @@ const StockDetailPage = () => {
       } catch (err) {}
     };
     fetchStockData();
-  }, []);
+  });
   return (
     <div className="container">
       <h1 className="mt-3"> Details of {symbol} stocks</h1>

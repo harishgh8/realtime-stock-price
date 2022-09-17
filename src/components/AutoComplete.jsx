@@ -10,6 +10,7 @@ const AutoComplete = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const { addStock } = useContext(AppContext);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

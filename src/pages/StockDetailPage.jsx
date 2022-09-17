@@ -12,16 +12,34 @@ const StockDetailPage = () => {
 
       const oneDay = currentTime - 24 * 60 * 60;
       const oneWeek = currentTime - 7 * 24 * 60 * 60;
-      const oneMonth = currentTime - 365 * 24 * 60 * 60;
+      const oneYear = currentTime - 365 * 24 * 60 * 60;
       try {
-        const response = await finnHUB.get("/stock/candle", {
-          params: {
-            symbol,
-            from: oneDay,
-            to: currentTime,
-            resolution: 30,
-          },
-        });
+        const response = await Promise.all([
+          finnHUB.get("/stock/candle", {
+            params: {
+              symbol,
+              from: oneDay,
+              to: currentTime,
+              resolution: 30,
+            },
+          }),
+          finnHUB.get("/stock/candle", {
+            params: {
+              symbol,
+              from: oneWeek,
+              to: currentTime,
+              resolution: 60,
+            },
+          }),
+          finnHUB.get("/stock/candle", {
+            params: {
+              symbol,
+              from: oneYear,
+              to: currentTime,
+              resolution: "W",
+            },
+          }),
+        ]);
         console.log(response);
       } catch (err) {}
     };

@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const StockList = () => {
   const [stock, setStock] = useState([]);
   const navigate = useNavigate();
-  const { watchList } = useContext(AppContext);
-
+  const stockWatch = useContext(AppContext);
+  const { watchList } = stockWatch;
   useEffect(() => {
     const fetchResp = async () => {
       try {
